@@ -238,7 +238,6 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     row: {
-        flex: 1,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
