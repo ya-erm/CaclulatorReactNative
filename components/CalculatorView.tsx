@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 20,
-        width: 440,
+        width: 380,
     },
     inputView: {
         flex: 1,

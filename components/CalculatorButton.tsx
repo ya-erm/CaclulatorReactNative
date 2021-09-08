@@ -21,7 +21,7 @@ export const CalculatorButton: React.FC<IButtonProps> = ({
     return (
         <TouchableOpacity onPress={onPress}>
             <Text
-                style={[styles.button, extraStyle, { width: columns * 100 + (columns - 1) * 10 }]}
+                style={[styles.button, extraStyle, { height: 85,  width: columns * 85 + (columns - 1) * 10 }]}
             >
                 {icon ? icon : text}
             </Text>
@@ -32,11 +32,9 @@ export const CalculatorButton: React.FC<IButtonProps> = ({
 const styles = StyleSheet.create({
     button: {
         display: 'flex',
-        height: 100,
-        width: 100,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 50,
+        borderRadius: 45,
         fontSize: 30,
         margin: 5,
     },
