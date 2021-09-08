@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export type IButtonProps = {
     text?: string;
@@ -20,11 +20,9 @@ export const CalculatorButton: React.FC<IButtonProps> = ({
 
     return (
         <TouchableOpacity onPress={onPress}>
-            <Text
-                style={[styles.button, extraStyle, { height: 85,  width: columns * 85 + (columns - 1) * 10 }]}
-            >
-                {icon ? icon : text}
-            </Text>
+            <View style={[styles.button, extraStyle, { height: 85, width: columns * 85 + (columns - 1) * 10 }]}>
+                <Text style={extraStyle}>{icon ? icon : text}</Text>
+            </View>
         </TouchableOpacity>
     );
 };
@@ -34,15 +32,18 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        textAlignVertical: 'center',
+        textAlign: 'center',
         borderRadius: 45,
-        fontSize: 30,
         margin: 5,
     },
     actionButton: {
+        fontSize: 30,
         backgroundColor: '#285FF5',
         color: 'white',
     },
     numberButton: {
+        fontSize: 30,
         backgroundColor: '#D6E2FC',
     },
 });
