@@ -27,6 +27,13 @@ export const CalculatorButton: React.FC<IButtonProps> = ({
     );
 };
 
+
+export const ActionButton: React.FC<IButtonProps> = ({ text, style = 'action', ...other }) => (
+    <CalculatorButton text={text} style={style} {...other} />
+);
+
+export const iconSize = 30;
+
 const styles = StyleSheet.create({
     button: {
         display: 'flex',
