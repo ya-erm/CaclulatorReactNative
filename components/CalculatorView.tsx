@@ -1,6 +1,13 @@
 import { FontAwesome5 as Icon } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+    NativeSyntheticEvent,
+    StyleSheet,
+    Text,
+    TextInput,
+    TextInputKeyPressEventData,
+    View,
+} from 'react-native';
 import { calculate } from '../model/Calculator';
 import { CalculatorButton, IButtonProps } from './CalculatorButton';
 
@@ -130,6 +137,21 @@ export const CalculatorView: React.FC = () => {
         setExpression((prev) => prev + ` = ${result}`);
     };
 
+    const onKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
+        const key = e.nativeEvent.key;
+        if (('0' < key && key <= '9') || key == '(' || key == ')') {
+            makeNumberButtonAction(key)();
+        } else if (key == '.' || key == ',') {
+            makeNumberButtonAction('.')();
+        } else if (['+', '-', '*', '/'].includes(key)) {
+            makeFunctionButtonAction(key)();
+        } else if (key == 'Enter' || key == '=') {
+            evaluateAction();
+        } else if (key == 'Backspace') {
+            deleteAction();
+        }
+    };
+
     const ActionButton: React.FC<IButtonProps> = ({ text, style = 'action', ...other }) => (
         <CalculatorButton text={text} style={style} {...other} />
     );
@@ -155,7 +177,12 @@ export const CalculatorView: React.FC = () => {
         <View>
             <View style={styles.inputContainer}>
                 <View style={styles.inputView}>
-                    <TextInput style={styles.inputMain} value={input} onChangeText={setInput} keyboardType="numeric" />
+                    <TextInput
+                        style={styles.inputMain}
+                        value={input}
+                        onKeyPress={onKeyPress}
+                        keyboardType="decimal-pad"
+                    />
                     <View style={styles.separator} />
                     <Text style={styles.history}>{expression}</Text>
                 </View>
