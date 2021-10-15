@@ -155,7 +155,7 @@ export const CalculatorView: React.FC = () => {
         <View>
             <View style={styles.inputContainer}>
                 <View style={styles.inputView}>
-                    <TextInput style={styles.inputMain} value={input} />
+                    <TextInput style={styles.inputMain} value={input} onChangeText={setInput} keyboardType="numeric" />
                     <View style={styles.separator} />
                     <Text style={styles.history}>{expression}</Text>
                 </View>
