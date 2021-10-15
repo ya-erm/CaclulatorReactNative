@@ -10,9 +10,9 @@ This is Calculator App based on React Native framework and TypeScript language.
 
 ![Screenshot](./screenshots/1.png)
 
-## Web site
+## Web site (react-native-web)
 
-### https://calc.ya-erm.ru
+### https://calc-rn.ya-erm.ru
 
 Used GitHub Pages to host web site result and GitHub Actions [pipeline.yml](.github/workflows/pipeline.yml) to automatically deploy.
 
@@ -21,6 +21,14 @@ Used GitHub Pages to host web site result and GitHub Actions [pipeline.yml](.git
 Project page: https://expo.dev/@ya-erm/Calculator
 
 Expo link: [exp://exp.host/@ya-erm/Calculator](exp://exp.host/@ya-erm/Calculator)
+
+## See also
+
+### https://calc.ya-erm.ru
+
+Calculator React app (not Native):
+
+Repository: https://github.com/ya-erm/calculator-react
 
 ---
 
